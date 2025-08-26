@@ -19,16 +19,18 @@ int	rstr_capitalizer(char *string)
 	int	i;
 
 	i = 0;
-	while (string)
+	while (string[i])
 	{
-		if (string[i+1] != ' ' || string[i+1] != '\0')
+		if (string[i+1] != ' ' && string[i+1] != '\0')
 		{
 			string[i] = to_lowercase(string[i]);
+			write(1, &string[i], 1);
 			++i;
 		}
 		else
 		{
 			string[i] = to_uppercase(string[i]);
+			write(1, &string[i], 1);
 			++i;
 		}
 	}
